@@ -4,10 +4,18 @@ import './Header.css';
 
 const Header = () => {
     return (
-        <div className='header'>
-            <nav>
-                <img src={logo} alt="logo" />
-            </nav>
+        <div className='bg'>
+            <div className='container'>
+                <nav className='header'>
+                    <img src={logo} alt="logo" />
+                    <div>
+                        <a href="/order">Order</a>
+                        <a href="/manage">Manage</a>
+                        <a href="/inventory">Inventory</a>
+                        <a href="/contact">Contact</a>
+                    </div>
+                </nav>
+            </div>
         </div>
     );
 };

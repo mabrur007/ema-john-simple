@@ -1,4 +1,54 @@
+.bg {
+    background-color: #1C2B35;
+}
+
+.container {
+    width: 1080px;
+    margin: 0 auto;
+}
+
 .header {
     height: 80px;
-    background-color: #1C2B35;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 36px;
+    font-size: 18px;
+}
+
+.header a:hover {
+    color: orange;
+}
+
+@media (min-width: 320px) and (max-width: 599px) {
+    .container {
+        width: 100%;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .header a {
+        margin-left: 20px;
+        font-size: 14px;
+    }
+
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1124px) {
+    .container {
+        width: 90%;
+    }
 }
