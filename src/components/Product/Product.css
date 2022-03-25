@@ -42,6 +42,11 @@
     bottom: 0;
 }
 
+.btn-cart p {
+    display: inline-block;
+    margin-right: 6px;
+}
+
 .btn-cart:hover {
     background: orange;
 }
