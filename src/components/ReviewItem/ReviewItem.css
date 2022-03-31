@@ -26,3 +26,19 @@
     color: orange;
     font-weight: bold;
 }
+
+.delete-container button{
+    height: 55px;
+    width: 55px;
+    cursor: pointer;
+    background-color: #eb57574f;
+    border-radius: 50%;
+    border: none;
+    color: #EB5757;
+    font-size: 25px;
+}
+
+.delete-container button:hover{
+    border: 3px solid #EB5757;
+    font-size: 27px;
+}
