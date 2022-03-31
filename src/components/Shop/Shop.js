@@ -1,39 +1,61 @@
-import React, { useEffect, useState } from 'react';
-import Cart from '../Cart/Cart';
-import useProducts from '../hooks/useProducts';
-import Product from '../Product/Product';
-import './Shop.css';
+import React, { useEffect, useState } from "react";
+import Cart from "../Cart/Cart";
+import { addToDb, getStoredCart } from "../../utilities/fakedb";
+import useProducts from "../hooks/useProducts";
+import Product from "../Product/Product";
+import "./Shop.css";
 
 const Shop = () => {
-    const [products, setProducts] = useProducts();
-    const [cart, setCart] = useState([]);
+  const [products, setProducts] = useProducts();
+  const [cart, setCart] = useState([]);
 
-    
-
-    // product is passing as parameter
-    const handleAddToCart = (product) => {
-        console.log(product);
-        // cart.push(product);
-        const newCart = [...cart, product];
-        setCart(newCart);
+  useEffect(() => {
+    const storedCart = getStoredCart();
+    const savedCart = [];
+    for (const id in storedCart) {
+      const addedProduct = products.find((product) => product.id === id);
+      if (addedProduct) {
+        const quantity = storedCart[id];
+        addedProduct.quantity = quantity;
+        savedCart.push(addedProduct);
+      }
     }
-    return (
-        <div className='shop-container'>
-            <div className="products-container">
-                {
-                    products.map(product => <Product
-                        key={product.id}
-                        product={product}
-                        handleAddToCart={handleAddToCart}
-                    ></Product>)
-                }
-            </div>
+    setCart(savedCart);
+  }, [products]);
 
-            <div className="cart-container">
-                <Cart cart={cart}></Cart>
-            </div>
-        </div>
-    );
+  const handleAddToCart = (selectedProduct) => {
+    console.log(selectedProduct);
+    let newCart = [];
+    const exists = cart.find((product) => product.id === selectedProduct.id);
+    if (!exists) {
+      selectedProduct.quantity = 1;
+      newCart = [...cart, selectedProduct];
+    } else {
+      const rest = cart.filter((product) => product.id !== selectedProduct.id);
+      exists.quantity = exists.quantity + 1;
+      newCart = [...rest, exists];
+    }
+
+    setCart(newCart);
+    addToDb(selectedProduct.id);
+  };
+  return (
+    <div className="shop-container">
+      <div className="products-container">
+        {products.map((product) => (
+          <Product
+            key={product.id}
+            product={product}
+            handleAddToCart={handleAddToCart}
+          ></Product>
+        ))}
+      </div>
+
+      <div className="cart-container">
+        <Cart cart={cart}></Cart>
+      </div>
+    </div>
+  );
 };
 
 export default Shop;

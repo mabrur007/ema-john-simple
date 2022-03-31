@@ -7,13 +7,13 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 45px;
-    margin: 100px 0 100px 60px;
+    margin: 100px 60px 100px 60px;
 }
 
 .cart-container{
     background-color: rgba(255, 153, 0, 0.3);
 }
-@media screen and (max-width: 1230px) {
+@media screen and (max-width: 1100px) {
     .products-container {
         grid-template-columns: repeat(2, 1fr);
     }
