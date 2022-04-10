@@ -30,6 +30,7 @@
     box-sizing: border-box;
     border-radius: 5px;
     font-size: 18px;
+    padding-left: 6px;
 }
 
 .form-submit{

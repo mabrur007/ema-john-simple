@@ -19,6 +19,10 @@
  *       }
  * 
  * 11. We installed - [npm install --save react-firebase-hooks]
+ * 12. Taking [useCreateUserWithEmailAndPassword] from [react-firebase-hooks]
+ * 13. If user is created then redirect that user to another page.
+ * 
+ * 
  * */
 
 
