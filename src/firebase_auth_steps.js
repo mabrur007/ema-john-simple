@@ -10,7 +10,15 @@
  *      6.2 export default auth;
  * 
  * 7. Firebase settings > Authentication > enable email & pass auth
+ * 8. Create login component, signup component, setup route
+ * 9. attatch form field handler ad form submit handler
  * 
+ * 10. We can prevent a form submit page reload by 
+ *      const handleCreateUser = event => {
+        event.preventDefault();
+ *       }
+ * 
+ * 11. We installed - [npm install --save react-firebase-hooks]
  * */
 
 

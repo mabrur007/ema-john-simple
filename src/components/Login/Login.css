@@ -6,6 +6,7 @@
     border-radius: 8px;
     display: flex;
     justify-content: center;
+    box-shadow: -8px 8px 1px rgba(255, 153, 0, 0.3);
 }
 
 .form-title{
@@ -40,7 +41,28 @@
     font-size: 20px;
 }
 
+.form-submit:hover{
+    cursor: pointer;
+    background-color: rgba(255, 153, 0, 0.5);
+}
+
 .form-link{
     color: #FF9900;
     text-decoration: none;
+}
+
+.form-or{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-or div{
+    width: 40%;
+    border-bottom: 1px solid #95A0A7;
+}
+
+.form-or p{
+    margin: 0 14px;
+    color: #95A0A7;
 }
